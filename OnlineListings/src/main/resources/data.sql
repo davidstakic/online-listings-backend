@@ -1,14 +1,14 @@
-INSERT INTO app_user (id, username, password, registered_at, phone_number) VALUES
-(1, 'david', '123', '2024-12-15 00:00:00', '0611111111'),
-(2, 'marko', '123', '2024-12-23 00:00:00', '0622222222'),
-(3, 'jovan', '123', '2025-01-07 00:00:00', '0633333333'),
-(4, 'petar', '123', '2025-01-27 00:00:00', '0644444444'),
-(5, 'pavle', '123', '2025-03-08 00:00:00', '0655555555'),
-(6, 'milica', '123', '2025-03-24 00:00:00', '0666666666'),
-(7, 'marija', '123', '2025-04-04 00:00:00', '0677777777'),
-(8, 'jovana', '123', '2025-05-03 00:00:00', '0688888888'),
-(9, 'ivan', '123', '2025-05-27 00:00:00', '0699999999'),
-(10, 'filip', '123', '2025-05-31 00:00:00', '0600000000');
+INSERT INTO app_user (id, username, password, registered_at, phone_number, authorities) VALUES
+(1, 'david', '$2a$10$g3gosxW0Wap/XFN1nr8tCOI0BGeSBb633FiOmw6iAUtDDfyH8TViS', '2024-12-15 00:00:00', '0611111111', 'USER'),
+(2, 'marko', '$2a$10$g3gosxW0Wap/XFN1nr8tCOI0BGeSBb633FiOmw6iAUtDDfyH8TViS', '2024-12-23 00:00:00', '0622222222', 'USER'),
+(3, 'jovan', '$2a$10$g3gosxW0Wap/XFN1nr8tCOI0BGeSBb633FiOmw6iAUtDDfyH8TViS', '2025-01-07 00:00:00', '0633333333', 'USER'),
+(4, 'petar', '$2a$10$g3gosxW0Wap/XFN1nr8tCOI0BGeSBb633FiOmw6iAUtDDfyH8TViS', '2025-01-27 00:00:00', '0644444444', 'USER'),
+(5, 'pavle', '$2a$10$g3gosxW0Wap/XFN1nr8tCOI0BGeSBb633FiOmw6iAUtDDfyH8TViS', '2025-03-08 00:00:00', '0655555555', 'USER'),
+(6, 'milica', '$2a$10$g3gosxW0Wap/XFN1nr8tCOI0BGeSBb633FiOmw6iAUtDDfyH8TViS', '2025-03-24 00:00:00', '0666666666', 'USER'),
+(7, 'marija', '$2a$10$g3gosxW0Wap/XFN1nr8tCOI0BGeSBb633FiOmw6iAUtDDfyH8TViS', '2025-04-04 00:00:00', '0677777777', 'USER'),
+(8, 'jovana', '$2a$10$g3gosxW0Wap/XFN1nr8tCOI0BGeSBb633FiOmw6iAUtDDfyH8TViS', '2025-05-03 00:00:00', '0688888888', 'USER'),
+(9, 'ivan', '$2a$10$g3gosxW0Wap/XFN1nr8tCOI0BGeSBb633FiOmw6iAUtDDfyH8TViS', '2025-05-27 00:00:00', '0699999999', 'USER'),
+(10, 'filip', '$2a$10$g3gosxW0Wap/XFN1nr8tCOI0BGeSBb633FiOmw6iAUtDDfyH8TViS', '2025-05-31 00:00:00', '0600000000', 'USER');
 
 INSERT INTO listing (id, name, description, image_url, price, category, owner_id, city, listed_at) VALUES (1, 'Listing 1', 'Lorem ipsum dolor sit amet consectetur adipiscing elit quisque faucibus.', 'https://media.istockphoto.com/id/1443562748/photo/cute-ginger-cat.jpg?s=612x612&w=0&k=20&c=vvM97wWz-hMj7DLzfpYRmY2VswTqcFEKkC437hxm3Cg=', 434.2, 'GAMES', 5, 'Čačak', '2025-04-24 00:00:00');
 INSERT INTO listing (id, name, description, image_url, price, category, owner_id, city, listed_at) VALUES (2, 'Listing 2', 'Lorem ipsum dolor sit amet consectetur adipiscing elit quisque faucibus.', 'https://media.istockphoto.com/id/1443562748/photo/cute-ginger-cat.jpg?s=612x612&w=0&k=20&c=vvM97wWz-hMj7DLzfpYRmY2VswTqcFEKkC437hxm3Cg=', 58.67, 'BOOKS', 10, 'Čačak', '2025-04-15 00:00:00');
