@@ -7,19 +7,23 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@SuperBuilder
 @Entity
 @Table(name = "app_user")
 public class User {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@SequenceGenerator(name = "appUserSeqGen", sequenceName = "appUserSeq", initialValue = 11, allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "appUserSeqGen")
 	private int id;
 	
 	@Column(name = "username", nullable = false, unique = true)

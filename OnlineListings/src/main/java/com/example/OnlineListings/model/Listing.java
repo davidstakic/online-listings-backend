@@ -52,7 +52,6 @@ public class Listing {
 	@Column(name = "city", nullable = false)
 	private String city;
 	
-	@CreationTimestamp
 	@Column(name = "listed_at", nullable = false, updatable = false)
 	private LocalDateTime listedAt;
 }
