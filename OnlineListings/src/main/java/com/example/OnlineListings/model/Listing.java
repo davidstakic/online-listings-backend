@@ -52,6 +52,6 @@ public class Listing {
 	@Column(name = "city", nullable = false)
 	private String city;
 	
-	@Column(name = "listed_at", nullable = false, updatable = false)
+	@Column(name = "listed_at", nullable = false)
 	private LocalDateTime listedAt;
 }
