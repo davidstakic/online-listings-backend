@@ -12,11 +12,13 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.OnlineListings.dto.ListingDTO;
+import com.example.OnlineListings.dto.ListingDetailsDTO;
 import com.example.OnlineListings.model.Listing;
 import com.example.OnlineListings.service.ListingService;
 
@@ -56,6 +58,27 @@ public class ListingController {
 	    response.put("totalPages", listings.getTotalPages());
 
 	    return new ResponseEntity<>(response, HttpStatus.OK);
+	}
+	
+	@GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<ListingDetailsDTO> getById(@PathVariable int id) {
+		Listing listing = service.findById(id);
+		
+		if (listing != null) {
+			ListingDetailsDTO dto = ListingDetailsDTO.builder()
+					.name(listing.getName())
+					.description(listing.getDescription())
+					.imageUrl(listing.getImageUrl())
+					.price(listing.getPrice())
+					.category(listing.getCategory().toString())
+					.ownerUsername(listing.getOwner().getUsername())
+					.ownerPhone(listing.getOwner().getPhoneNumber())
+					.listedAt(listing.getListedAt()).build();
+			
+			return new ResponseEntity<>(dto, HttpStatus.OK);
+		}
+		
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}
 
 }

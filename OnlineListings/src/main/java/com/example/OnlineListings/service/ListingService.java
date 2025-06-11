@@ -1,5 +1,7 @@
 package com.example.OnlineListings.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -23,6 +25,9 @@ public class ListingService {
 	    Specification<Listing> spec = ListingSpecification.withFilters(category, keyword, minPrice, maxPrice, owner);
 	    return repository.findAll(spec, pageable);
 	}
-
+	
+	public Listing findById(int id) {
+		return repository.findById(id).orElse(null);
+	}
 
 }
