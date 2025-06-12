@@ -43,9 +43,15 @@ cd online-listings-backend
 ## 🛠️ Setting up the PostgreSQL database
  - Start the PostgreSQL server (e.g. with pgAdmin or command).
  - Create a database in PostgreSQL with the following SQL query:
-
 ```sql
 CREATE DATABASE online_listings;
 ```
+ - Check and, if necessary, change the username and password in the file:
+```properties
+spring.datasource.url=jdbc:postgresql://localhost:5432/online_listings
+spring.datasource.username=postgres
+spring.datasource.password=david
+```
+Note: Spring.jpa.hibernate.ddl-auto=create-drop is set, so the database will be reset on every boot.
 
 ---
