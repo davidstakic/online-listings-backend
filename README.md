@@ -55,3 +55,16 @@ spring.datasource.password=david
 Note: Spring.jpa.hibernate.ddl-auto=create-drop is set, so the database will be reset on every boot.
 
 ---
+
+## ▶️ Launching the application
+### Option 1: IntelliJ and Eclipse
+ - Open OnlineListingsApplication.java and click Run button.
+### Option 2: From the terminal using Maven
+ - If you are using system Maven:
+```bash
+mvn spring-boot:run
+```
+ - Or using a wrapper:
+```bash
+./mvnw spring-boot:run
+```
