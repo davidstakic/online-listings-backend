@@ -60,7 +60,7 @@ public class WebSecurityConfiguration {
             .requestMatchers(HttpMethod.OPTIONS).permitAll()
             .requestMatchers("/login").permitAll()
             .requestMatchers("/api/users").permitAll()
-            .requestMatchers("/api/listings/**").permitAll()
+            .requestMatchers("/api/listings", "/api/listings/*").permitAll()
             .anyRequest()
             .authenticated()
         );

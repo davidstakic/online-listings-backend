@@ -1,7 +1,5 @@
 package com.example.OnlineListings.service;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -9,6 +7,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.example.OnlineListings.model.Listing;
 import com.example.OnlineListings.repository.ListingRepository;
@@ -28,6 +27,15 @@ public class ListingService {
 	
 	public Listing findById(int id) {
 		return repository.findById(id).orElse(null);
+	}
+	
+	@Transactional
+    public Listing save(Listing listing) {
+        return repository.save(listing);
+    }
+	
+	public void delete(Listing listing) {
+		repository.delete(listing);
 	}
 
 }

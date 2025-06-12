@@ -16,17 +16,21 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.SequenceGenerator;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@SuperBuilder
 @Entity
 public class Listing {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@SequenceGenerator(name = "listingSeqGen", sequenceName = "listingSeq", initialValue = 101, allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "listingSeqGen")
 	private int id;
 	
 	@Column(name = "name", nullable = false)
